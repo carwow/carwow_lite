@@ -1,3 +1,139 @@
-h1 {
-  color: blue;
+body {
+  font-family: 'ProximaNova', serif;
+  font-weight: 400;
+}
+
+.header {
+  height: 48px;
+  background-color: #00a4ff;
+  .logo {
+    display: block;
+    height: 20px;
+    padding: 14px 0px 14px 15.5px;
+    width: auto;
+  }
+}
+
+.title {
+  align-items: center;
+  background-color: #f5f5f5;
+  color: #4d4f52;
+  display: flex;
+  display: -ms-flexbox;
+  font-size: 32px;
+  font-weight: 600;
+  height: 200px;
+  justify-content: center;
+  -ms-flex-pack: center;
+  margin: 0;
+}
+
+.car-showroom__container {
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: all 1s ease-out;
+  @media (min-width: 768px) {
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.car-card {
+  &__container {
+    border-radius: 4px;
+    margin-top: 32px;
+    overflow: hidden;
+    position: relative;
+    @media (min-width: 768px) {
+      margin-right: 4%;
+      width: 48%;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+    @media (min-width: 1024px) {
+      margin-right: 1.5%;
+      width: 23%;
+      &:nth-child(2n) {
+        margin-right: 1.5%;
+      }
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+  }
+  &__header {
+    position: relative;
+  }
+  &__overlay {
+     background-image: linear-gradient(121deg, #0a0b0c, rgba(10, 11, 12, 0));
+     color: #fff;
+     height: 100%;
+     left: 0;
+     position: absolute;
+     top: 0;
+     width: 100%;
+     &-info {
+       display: flex;
+       display: -ms-flexbox;
+       flex-direction: column;
+       -ms-flex-direction: column;
+       height: 100%;
+       justify-content: center;
+       -ms-flex-pack: center;
+       padding-left: 17px;
+       padding-right: 17px;
+     }
+  }
+  &__make {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  &__model {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 40px;
+  }
+  &__info {
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding: 16px;
+  }
+  &__engine {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+  &__details {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  &__offer {
+    background-color: #00a4ff;
+    border-radius: 16px;
+    color: #fff;
+    padding: 0 8px;
+    position: absolute;
+    left: 16px;
+    line-height: 23px;
+    top: 16px;
+  }
+}
+
+.card-archive {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.card-image {
+  display: block;
+  width: 100%;
 }
