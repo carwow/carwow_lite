@@ -1,24 +1,34 @@
-%h1 Showroom
-%p
-  You can find this template under /app/views/showroom/index.html.haml
-%p
-  You can also find css and javascript under /app/assets
-%p
-  jQuery has already been installed.
 
+%header.header
+  %img.logo{:src => asset_path("white-logo.svg")}
 
--# you can add comments like this
-
--# the data for the cars to show will be provided to the this file via the showroom_controller
--# here is an example of how to loop over all the cars and pull out the data you need:
-
-%ul
+%h1.title
+  Your Showroom
+  
+.car-showroom__container
   - @cars.each do |car|
-    -# all available data: car[:make], car[:model], car[:engine], car[:details], car[:image_name], car[:has_new_offer]
-    %li
-      =car[:make]
-      =car[:model]
-      - if car[:has_new_offer]
-        1 new offer
--# you can load the car photo with the following snippit of code:
--#  %img{:src => asset_path(car[:image_name])}
+    .car-card__container
+      .car-card__header
+        .car-card__image
+          %img.card-image{:src => asset_path(car[:image_name])}
+        .car-card__overlay
+          .car-card__overlay-info
+            .car-card__make
+              =car[:make]
+            .car-card__model
+              =car[:model]
+        %button.card-archive
+          %img{:src => asset_path("archive_icon.svg")}
+      .car-card__info
+        .car-card__engine
+          =car[:engine]
+        .car-card__details
+          =car[:details]
+        - if car[:has_new_offer]
+          %span.car-card__offer
+            1 new offer
+
+:javascript
+  $( ".card-archive" ).click(function() {
+    $(this).closest(".car-card__container").remove();
+  });
